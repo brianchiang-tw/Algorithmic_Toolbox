@@ -9,11 +9,17 @@ def get_fibonacci_last_digit_naive(n):
     current  = 1
 
     for _ in range(n - 1):
-        previous, current = current, previous + current
+        previous, current = current % 10, (previous + current) % 10
 
-    return current % 10
+    return current
 
+
+
+# Entry point of program
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    n = int(input)
+   
+    n = int( input() )
+
+    # print("n:", n )
+
     print(get_fibonacci_last_digit_naive(n))

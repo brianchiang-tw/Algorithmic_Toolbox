@@ -1,16 +1,31 @@
 # Uses python3
 import sys
 
-def gcd_naive(a, b):
-    current_gcd = 1
-    for d in range(2, min(a, b) + 1):
-        if a % d == 0 and b % d == 0:
-            if d > current_gcd:
-                current_gcd = d
+def gcd_euclidean(a, b):
+    
+    if a < b:
+        # Always keep the larger one on the first place, smaller one on the second place.
+        a, b = b, a
 
-    return current_gcd
+
+    # Base case:
+    # GCD( a, b ) = a , if b == 0
+
+    # Inductive step:
+    # GCD( a, b ) = GCD( b, r ) where r = a % b, the remainder of a / b
+    
+    while b != 0:
+
+        remainder = a % b
+        a = b
+        b = remainder
+
+    return a
+
+
 
 if __name__ == "__main__":
-    input = sys.stdin.read()
-    a, b = map(int, input.split())
-    print(gcd_naive(a, b))
+    
+    a, b = map(int, input().split() )
+    # print(a, b)
+    print( gcd_euclidean(a, b) )
