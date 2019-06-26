@@ -8,7 +8,7 @@ def get_reachable_gas_station( current_position, miles_to_empty, stops ):
     for gas_station_position in stops:
 
         # keep going further, instead of being on reverse direction
-        if (gas_station_position > current_position) and (gas_station_position - current_position) < miles_to_empty:
+        if (gas_station_position > current_position) and (gas_station_position - current_position) <= miles_to_empty:
             reachable_gas_station.append( gas_station_position )
             # stops.remove( gas_station_position )
 
@@ -49,12 +49,16 @@ def compute_min_refills(distance, tank, stops):
 
         # minimize the times of refuel by going as futher as possible
         furthest_refuel_stop = max( gas_station_in_range )
+        # print("furthest refuel stop", furthest_refuel_stop)
+
+
 
         if -1 == furthest_refuel_stop:
             # this car cannot reach the end
             return -1
         else:
             
+
             # refules in gas station with furthest_refuel_stop (on miles)
             last_refuel_position = furthest_refuel_stop
 
@@ -64,6 +68,11 @@ def compute_min_refills(distance, tank, stops):
             # update times of refuel
             times_of_refuel += 1
     
+            # remove pass_through_station from stops (i.e., all gas station)
+            for pass_through_station in gas_station_in_range:
+                stops.remove( pass_through_station )
+
+
 
 
     return times_of_refuel

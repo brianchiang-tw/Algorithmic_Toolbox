@@ -54,7 +54,7 @@ def get_change( target_value ):
         largest_coin_index += 1
 
 
-    return m
+    return sum(number_of_coin)
 
 if __name__ == '__main__':
     m = int( input() )

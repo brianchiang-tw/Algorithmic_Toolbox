@@ -8,6 +8,8 @@ def get_optimal_value(capacity, weights, values):
 
     # get total number of item
     number_of_items = len(weights)
+    # print("number of items", number_of_items)
+
 
     # make a item pair by corresponding values and weights
     item_pair = list( zip(values, weights) )
@@ -26,12 +28,12 @@ def get_optimal_value(capacity, weights, values):
     # initialize the remaining capacity
     remaining_capacity = capacity
 
-    # initialize the index 
+    # initialize the index of item
     index = 0
 
 
-
-    while sum(weight_of_pick) != capacity:
+    # Keep picking item with highest value per unit weight until a) bag is full, or b) all items are picked.
+    while sum(weight_of_pick) != capacity and index != number_of_items:
 
         # max load = min of { the weight of most worthy item, remaining capacity }
         maximam_load_of_most_worthy_item = min( item_pair[index][1], remaining_capacity )
@@ -48,8 +50,14 @@ def get_optimal_value(capacity, weights, values):
         # update value of pick
         value = value + weight_of_pick[index] * value_per_unit_weight
 
+        # print()
+        # print("index", index )
+        # print("value", value )
+
         # pick the second worthy item on next iteration
         index += 1
+
+
 
     return value
 
