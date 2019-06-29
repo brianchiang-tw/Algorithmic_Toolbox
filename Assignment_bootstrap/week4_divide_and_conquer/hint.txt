@@ -17,7 +17,8 @@ The first one is left end point, with coordination and a label "S_LEFT"
 The second one is the given point, with coordication and a label "P_POINT"
 The third one is the right end point, with coordination and a label "S_RIGHT"
 
-Next, conducting a sorting over those points, and it is clear that the number of covering segment equals to the number of enclosure by S_LEFT and S_RIGHT.
+Next, conducting a sorting over those points, 
+and it is clear that the number of covering segment equals to the number of enclosure by S_LEFT and S_RIGHT.
 
 For example:
 
