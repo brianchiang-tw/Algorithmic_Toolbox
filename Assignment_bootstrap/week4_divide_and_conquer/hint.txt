@@ -12,7 +12,7 @@ we can easily modify and enhance merge sort to calculate the number of inersions
 Points over segments (i.e., organizing a lottery) is a variant extension of quick sort by divide-and-conquer strategy.
 The hint is to decompose each segment as a combination of two points, one is left end point, the other is right end point.
 
-Therefore, we have three kind of points:
+Therefore, we have three kinds of points:
 The first one is left end point, with coordination and a label "S_LEFT"
 The second one is the given point, with coordication and a label "P_POINT"
 The third one is the right end point, with coordination and a label "S_RIGHT"
