@@ -1,0 +1,16 @@
+assignment in week 1 is just a warm up for us to get familiar with the usage of submission and judge system in coursera.
+
+It is clear and easy for us to follow the instruction and guideline in pdf file to pass all those 2 problem set.
+
+1. Sum of two digits.
+
+Use a + b and print statement to output the result
+
+
+
+2. Maximum pairwise product
+
+Use the property max( a * b ) = max(a) * max (b)
+
+Catch the idea above and use it to find the first two largest element from input array.
+Then, we can get the maximum pairwise product by taking a multiplication of a * b.
