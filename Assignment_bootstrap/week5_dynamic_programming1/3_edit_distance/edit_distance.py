@@ -3,7 +3,6 @@ import sys
 
 
 
-
 # Output image into console
 def print_2d_array( image_matrix, mode = "Hex" ):
 
