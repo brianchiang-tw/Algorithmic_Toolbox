@@ -1,11 +1,87 @@
 #Uses python3
-
 import sys
 
-def lcs3(a, b, c):
-    #write your code here
-    return min(len(a), len(b), len(c))
 
+
+# function to calculate maximal length of common sequence with dynamic programming
+def longest_common_sequence(s, t, u):
+
+    
+
+    # padding a empty zero, denoting empty sequence, on the head on all s, t, and u
+    s = [0] + s
+    t = [0] + t
+    u = [0] + u
+
+    depth = len(u)
+    height = len(t)
+    width = len(s)
+
+
+    # The max length of common sequence between string s to empty string is 0
+    # The max length of common sequence between string t to empty string is 0
+    # The max length of common sequence between string u to empty string is 0
+    # create a 3d array of depth * height * width
+    length_of_common_sequence = [ [ [ 0 for x in range(width) ] for y in range(height) ] for z in range(depth) ]
+
+
+    
+    # Main idea of minimal distance with dynamic programming
+
+    # s: the input string (or sequence)
+    # t: the input string (or sequence)
+    # u: the input string (or sequence)
+
+    # s-1: substring of s without tail character, where s-1 = s[0:-1]
+    # t-1: substring of t without tail character, where t-1 = t[0:-1]
+    # u-1: substring of t without tail character, where u-1 = u[0:-1]
+
+    # If tail character among s, t and u is equal, 
+    #
+    # the maximal length_of_common_sequence(s,t) = length_of_common_sequence(s-1, j-1, u-1) + 1 [ Note: +1 is due to the equality tail of s = tail of t = tail of u]
+    
+    # If tail characters of s, t, and u, are different, 
+    #
+    # the maximal length_of_common_sequence(s,t) = max  {   
+    #                                                       length_of_common_sequence(s-1, t  , u   ) 
+    #                                                       length_of_common_sequence(s,   t-1, u   )
+    #                                                       length_of_common_sequence(s,   t  , u-1 )
+    #                                                   }
+
+    for i in range(0, depth):
+        for j in range(0, height):
+            for k in range(0, width):
+
+
+                max_length_of_common_seq_by_deleting_u_tail = length_of_common_sequence[ i-1 ][ j   ][ k   ]
+                max_length_of_common_seq_by_deleting_t_tail = length_of_common_sequence[ i   ][ j-1 ][ k   ]
+                max_length_of_common_seq_by_deleting_s_tail = length_of_common_sequence[ i   ][ j   ][ k-1 ]
+                max_length_of_common_seq_by_match           = length_of_common_sequence[ i-1 ][ j-1 ][ k-1 ] + 1
+
+                if i == 0 or j == 0 or k == 0:
+                    length_of_common_sequence[i][j][k] = 0
+
+                elif u[i] == t[j] and t[j] == s[k]:
+                    length_of_common_sequence[i][j][k] = max_length_of_common_seq_by_match
+
+                else:
+                    length_of_common_sequence[i][j][k] = max( max_length_of_common_seq_by_deleting_s_tail, max_length_of_common_seq_by_deleting_t_tail, max_length_of_common_seq_by_deleting_u_tail )
+
+
+
+    return length_of_common_sequence[ depth-1 ][ height-1 ][ width-1 ]
+
+
+
+# function trigger of longest_common_sequence( a, b, c )
+def lcs3(a, b, c):
+    
+    max_length_of_common_sequence = longest_common_sequence( a, b, c )
+    return max_length_of_common_sequence
+
+
+
+# Entry point of program
 if __name__ == '__main__':
     input = sys.stdin.read()
     data = list(map(int, input.split()))
@@ -21,3 +97,5 @@ if __name__ == '__main__':
     data = data[1:]
     c = data[:cn]
     print(lcs3(a, b, c))
+
+    quit()

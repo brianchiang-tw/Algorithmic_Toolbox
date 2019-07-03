@@ -70,7 +70,7 @@ def longest_common_sequence(s, t):
 
 
 
-# function trigger of longest_common_sequence( a, b)
+# function trigger of longest_common_sequence( a, b )
 def lcs2(a, b):
     #write your code here
 
