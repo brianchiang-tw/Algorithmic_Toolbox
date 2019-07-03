@@ -41,6 +41,7 @@ def edit_distance(s, t):
     height = len(t)
     width = len(s)
 
+    # create a 2D array to record minimal edit distance between string s and t
     min_edit_dist_array = [ [ 0 for x in range(width) ] for y in range(height) ]
 
     # The edit with shortest distance from string s to empty string is completed by deleting of all characters of s
