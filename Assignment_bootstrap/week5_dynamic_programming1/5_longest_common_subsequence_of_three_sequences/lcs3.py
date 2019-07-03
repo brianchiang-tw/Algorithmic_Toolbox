@@ -31,9 +31,9 @@ def longest_common_sequence(s, t, u):
     # t: the input sequence
     # u: the input sequence
 
-    # s-1: sub-sequence of s without tail character, where s-1 = s[0:-1]
-    # t-1: sub-sequence of t without tail character, where t-1 = t[0:-1]
-    # u-1: sub-sequence of t without tail character, where u-1 = u[0:-1]
+    # s-1: sub-sequence of s without tail element, where s-1 = s[0:-1]
+    # t-1: sub-sequence of t without tail element, where t-1 = t[0:-1]
+    # u-1: sub-sequence of t without tail element, where u-1 = u[0:-1]
 
     # If tail element among s, t and u is equal, 
     #

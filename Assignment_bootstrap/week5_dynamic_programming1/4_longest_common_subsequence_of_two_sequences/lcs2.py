@@ -32,17 +32,17 @@ def longest_common_sequence(s, t):
 
     # Main idea of minimal distance with dynamic programming
 
-    # s: the input string
-    # t: the input string
+    # s: the input sequence
+    # t: the input sequence
 
-    # s-1: substring of s without tail character, where s-1 = s[0:-1]
-    # t-1: substring of t without tail character, where t-1 = t[0:-1]
+    # s-1: sub-sequence of s without tail element, where s-1 = s[0:-1]
+    # t-1: sub-sequence of t without tail element, where t-1 = t[0:-1]
 
-    # If tail character of s and t is equal, 
+    # If tail element of s and t is equal, 
     #
     # the maximal length_of_common_sequence(s,t) = length_of_common_sequence(s-1, j-1) + 1 [ Note: +1 is due to the equality tail of s = tail of t]
     
-    # If tail characters of s and t are different, 
+    # If tail elements of s and t are different, 
     #
     # the maximal length_of_common_sequence(s,t) = max  {   
     #                                                       length_of_common_sequence(s-1, t  )
@@ -57,8 +57,10 @@ def longest_common_sequence(s, t):
             max_length_of_common_seq_by_match           = length_of_common_sequence[ i-1 ][ j-1 ] + 1
 
             if t[i] == s[j]:
+                # tail element of s and t is equal
                 length_of_common_sequence[i][j] = max_length_of_common_seq_by_match
             else:
+                # tail elements of s and t are different
                 length_of_common_sequence[i][j] = max( max_length_of_common_seq_by_deleting_t_tail, max_length_of_common_seq_by_deleting_s_tail )
 
 
