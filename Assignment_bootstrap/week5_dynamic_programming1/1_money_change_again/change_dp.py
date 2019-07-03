@@ -60,6 +60,7 @@ def get_change(m):
 
     min_coins, coin_container = get_min_change( price = m, solution_table = lookup_table)
 
+    # Debug message
     # print("coins container", coin_container)
     # print("sum of coins", sum(coin_container) )
 
