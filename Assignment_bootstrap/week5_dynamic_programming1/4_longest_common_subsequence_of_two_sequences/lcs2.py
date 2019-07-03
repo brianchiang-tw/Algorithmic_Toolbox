@@ -6,7 +6,7 @@ import sys
 # function to calculate maximal length of common sequence with dynamic programming
 def longest_common_sequence(s, t):
 
-    #write your code here
+    
 
     # padding a empty zero, denoting empty sequence, on the head on both s and t
     s = [0] + s
