@@ -2,6 +2,9 @@
 import sys
 import itertools
 
+
+
+# A variant of discrete_0_or_1_knapsack to solve 3-partition with equal sum
 def discrete_0_or_1_knapsack( capacity, item_list, lookup_table):
 
 
